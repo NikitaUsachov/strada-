@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    
+const phoneBook = {
+    Nikita:89192216221,
+    Nastya:89612209394,
+    Olaf:89999992321
+};
+let ask = confirm("желаете добавить Новый контакт");
+while (ask === true){
+    let add_name = prompt("Введи имя")
+    let add_phone = prompt("Введи номер")
+    phoneBook[add_name] = Number(add_phone);
+    ask = confirm("еще ?")
+}
+alert("Объект передан в консоль");
+console.log(phoneBook);
+
+</script>
+<body>
+    
+</body>
+</html>
