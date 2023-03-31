@@ -17,19 +17,39 @@ const Todo = {
         console.log(task + " --Task deleted--")
     },
     showList(){
+        let i = 0;
         console.log("---To Do List---")
+        console.log("In Progress:")
+        for (const name in Todo.list) {
+            if (this.list[name] === "In Progress") {
+                console.log(`\t` + name)
+                i++
+            }
+            if ( i===0 ){
+                console.log(`\t` + "-")
+                break
+            }
+        }    
+        console.log("Done:")
         for (const name in Todo.list){
-            if (this.list[name]=== "In Progress"){
-                console.log(this.list[name] + ":")
-                console.log(name)
-            }
             if (this.list[name]=== "Done"){
-                console.log(this.list[name] + ":")
-                console.log(name)
+                console.log(`\t` + name)
+                i++
             }
-            if (this.list[name]=== "To Do"){
-                console.log(this.list[name] + ":")
-                console.log(name)
+            if ( i===0 ){
+                console.log(`\t` + "-")
+                break
+            }
+        }
+        console.log("To Do:")
+        for (const name in Todo.list){
+            if (this.list[name] === "To Do"){
+                console.log(`\t` + name)
+                i++
+            }
+            if ( i===0 ){
+                console.log(`\t` + "-")
+                break
             }
         }
     }
