@@ -17,7 +17,6 @@ function vertLine(word) {
         else {
             console.log(word.charAt(char));
         }
-        
     }
 }
 vertLine("strada");
