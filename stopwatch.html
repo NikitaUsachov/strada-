@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="outerDiv">
+    <div id="innerDiv">
+        <button id="innerButton">Секундомер</button>
+    </div>
+</div>
+
+<script>
+    let innerButton = document.getElementById('innerButton');
+    let seconds = 0;
+    let isPaused = false;
+    let interval;
+
+    function startTimer() {
+        if (isPaused !== true) {
+            interval = setInterval(function () {
+                seconds++
+                console.log(seconds)
+            }, 1000)
+        }
+
+    }
+     function pause() {
+         isPaused = !isPaused
+         if (isPaused === false){
+             clearInterval(interval)
+         }
+
+     }
+
+    innerButton.addEventListener('click', startTimer);
+    innerButton.addEventListener('click', pause);
+
+</script>
+</body>
+</html>
