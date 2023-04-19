@@ -18,21 +18,17 @@
     let interval;
 
     function startTimer() {
-        if (isPaused !== true) {
+        if (isPaused) {
             interval = setInterval(function () {
-                seconds++
-                console.log(seconds)
-            }, 1000)
+                seconds++;
+                console.log(seconds);
+            }, 1000);
         }
-
+        else {
+            clearInterval(interval);
+        }
+        isPaused = !isPaused;
     }
-     function pause() {
-         isPaused = !isPaused
-         if (isPaused === false){
-             clearInterval(interval)
-         }
-
-     }
 
     innerButton.addEventListener('click', startTimer);
     innerButton.addEventListener('click', pause);
