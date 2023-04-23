@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        margin: 100px;
+    }
+</style>
+<body>
+    <button id = 'del' >delete</button>
+    <button id = 'create' >create</button>
+</body>
+<script>
+
+    let buttonDel = document.getElementById('del');
+    let buttonCreate = document.getElementById('create');
+    let colors;
+
+    function changeColor () {
+        colors = ['red', 'blue', 'green', 'orange'];
+        document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+    }
+    setInterval((changeColor),1000)
+
+
+    function create(){
+        let newElem = document.createElement('div')
+        newElem.textContent = 'New element'
+        newElem.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+        document.body.appendChild(newElem);
+        newElem.classList.add('huy');
+    }
+    function delElement (){
+        let element = document.getElementsByClassName('huy');
+        element[0].remove()
+    }
+
+
+    buttonDel.addEventListener('click', delElement)
+    buttonCreate.addEventListener('click', create)
+
+</script>
+</html>
+
+
+
+

@@ -13,6 +13,9 @@ body{
     font-size: 30px;
 }
 input {
-    height: 36px;
+    height: 30px;
     width: 50px;
+}
+.saveResult{
+    margin-top: 15px;
 }
