@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+.buttonAdd{
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    margin-left: 150px;
+    text-indent: -9999px;
+    background-image: url(img/add.png);
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+.closeTask{
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    margin-left: 385px;
+    text-indent: -9999px;
+    background-image: url(img/close.png);
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+.content{
+    width: 476px;
+}
+input {
+
+    height: 30px;
+    outline: none;
+    border: none;
+}
+form{
+    border: 1px solid #000;
+    border-radius: 6px;
+}

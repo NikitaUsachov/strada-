@@ -1,0 +1,84 @@
+body{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.form-task {
+    border: 1px solid #000;
+    border-radius: 6px;
+}
+.addTaskButton{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    margin:5px 5px 5px 250px;
+    text-indent: -9999px;
+    background-image: url('icons8-add-24.png');
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+    border: none;
+
+}
+.content{
+    width: 500px;
+}
+
+.task {
+    margin-top: 10px;
+    border: 1px solid #000;
+    border-radius: 6px;
+}
+.task-block{
+    margin: 5px 20px 20px 20px ;
+    padding: 7px;
+}
+.closeButton{
+    margin: 5px 5px 5px 435px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent; /* Добавленное свойство */
+    text-indent: -9999px;
+    background-image: url('close.png');
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+input[type="radio"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    position: relative;
+}
+
+input[type="radio"]::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type="radio"]:checked::after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
