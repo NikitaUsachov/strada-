@@ -17,6 +17,7 @@ async function detectName (event) {
     newDiv.textContent = responseText.name + " is " + responseText.gender
     newDiv.className = 'newDiv'
     answer.append(newDiv)
+    inputName.value = "";
 
 
 }
