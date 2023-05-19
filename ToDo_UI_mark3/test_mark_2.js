@@ -60,7 +60,9 @@ function render(list, rendDiv) {
         newLabel.appendChild(checkbox)
         newLabel.appendChild(divTextCont);
         newDiv.appendChild(closeBtn);
-    }
+    }  // const newCloseBtn = document.createElement('input')
+            // newCloseBtn.type = 'button'
+            // newCloseBtn.append(newLi)
 }
 
 highPriorityForm.addEventListener("submit", (event) => addInArray(event, highPriorityList, highPriorityInputForm, highPriorityRendDiv));
