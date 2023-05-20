@@ -151,7 +151,6 @@ function renderRightBlock() {
 }
 
 
-
 form.addEventListener('submit', initialization)
 tabsBtns.addEventListener('click', tabsBtnsHandler);
 
