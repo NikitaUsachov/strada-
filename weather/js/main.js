@@ -39,7 +39,6 @@ async function initialization (event){
     responseText = await response.json();
     renderLeftBlock(responseText)
 }
-
 function renderLeftBlock (responseText) {
     inputForm.value = '' // очистка формы
     weatherNowDiv.innerHTML = '' //очистка формы
