@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -249,7 +248,7 @@ body {
     display: inline-block;
     height: 8px;
     width: 8px;
-    margin-left: 15px;
+    margin-left: 145px;
 
 
 

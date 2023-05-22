@@ -125,13 +125,13 @@ function renderLeftBlock (responseText) {
 
 // добавление в города в массив, преобразование в Json,отправка в localStorage
 function addInArray(){
-    const activeBtb = document.querySelector('.favorite-btn')
-    activeBtb.className = 'favorite-btn-active'
     const add = { name: responseText.name };
     const found = addedLocations.find(item => item.name === add.name);
     if (found !== undefined) {
-        alert('Такой город уже есть в списке.');
+        alert('Уже есть в списке.');
     } else {
+        const activeBtb = document.querySelector('.favorite-btn')
+        activeBtb.className = 'favorite-btn-active'
         addedLocations.push(add);
         const cityNameJson = JSON.stringify(addedLocations);
         localStorage.setItem('name', cityNameJson);
@@ -145,8 +145,10 @@ function renderRightBlock() {
     for (let i = 0; i < addedLocations.length; i++) {
         const newLi = document.createElement('li')
         newLi.textContent = addedLocations[i].name
+        newLi.className = ' list-group-item-action'
         favouriteList.append(newLi)
         newLi.addEventListener('click', returnFavCity)
+
 
         async function returnFavCity() {
             const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';

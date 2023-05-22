@@ -14,8 +14,15 @@
     <div class="weather">
         <div class="weather-search">
             <form class="weather-search-form">
-                <input class="weather-search-form-input" type="text">
-                <button type="submit"></button>
+                <input class="weather-search-form-input form-control" list="datalistOptions" id="exampleDataList" type="text" placeholder="Поиск города" >
+                <datalist id="datalistOptions">
+                    <option value="Moscow">
+                    <option value="Bali">
+                    <option value="Saratov">
+                    <option value="Sri Lanka">
+                    <option value="Chicago">
+                </datalist>
+                <button type="submit" class="btn"></button>
             </form>
         </div>
         <div class="weaether-big-block">
