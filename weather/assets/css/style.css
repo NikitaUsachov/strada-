@@ -114,7 +114,16 @@ body {
     padding-bottom: 23px;
     border: none;
     cursor: pointer;
-    background: url('../img/heart.png') no-repeat;
+    background: url('../img/heart.svg') no-repeat;
+    background-size: contain;
+    width: 22px;
+    height: 22px;
+}
+.favorite-btn-active {
+    padding-bottom: 23px;
+    border: none;
+    cursor: pointer;
+    background: url('../img/heart-activ.svg') no-repeat;
     background-size: contain;
     width: 22px;
     height: 22px;
@@ -233,4 +242,16 @@ body {
 
 .inactive-block {
     display: none;
+}
+
+/*======================================================================================================*/
+.btn-close {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    margin-left: 15px;
+
+
+
+
 }

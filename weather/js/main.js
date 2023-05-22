@@ -36,8 +36,16 @@ async function initialization (event){
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
     let url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
     let response = await fetch(url)
-    responseText = await response.json();
-    renderLeftBlock(responseText)
+    if (response.status === 200){
+        responseText = await response.json();
+        renderLeftBlock(responseText)
+    }else {
+        console.log('ooops')
+        alert('Город не найден')
+        inputForm.value = ''
+
+    }
+
 }
 function renderLeftBlock (responseText) {
     inputForm.value = '' // очистка формы
@@ -71,7 +79,13 @@ function renderLeftBlock (responseText) {
     newDivSelectedCity.append(newP)
     // <button class = "favorite-btn"></button>
     const newButtonFavorite = document.createElement('button')
-    newButtonFavorite.className = 'favorite-btn'
+    const add = { name: responseText.name };
+    const found = addedLocations.find(item => item.name === add.name);
+    if (found !== undefined){
+        newButtonFavorite.className = 'favorite-btn-active'
+    }else {
+        newButtonFavorite.className = 'favorite-btn btn'
+    }
     newDivSelectedCity.append(newButtonFavorite)
     newButtonFavorite.addEventListener('click',addInArray)
     renderWeatherDetails()
@@ -99,7 +113,7 @@ function renderLeftBlock (responseText) {
             { hour: '2-digit', minute: '2-digit' });
         newLiSunrise.textContent = `Sunrise: ${timeSunrise}`
         newUlDetails.append(newLiSunrise)
-        //преобразуем врем для заквата
+        //преобразуем врем для заката
         const newLiSunset = document.createElement('li')
         const timesSunset = responseText.sys.sunset
         const timeSunset = new Date(timesSunset * 1000).toLocaleTimeString([],
@@ -111,11 +125,18 @@ function renderLeftBlock (responseText) {
 
 // добавление в города в массив, преобразование в Json,отправка в localStorage
 function addInArray(){
-    let add = {name:responseText.name}
-    addedLocations.push(add)
-    const cityNameJson = JSON.stringify(addedLocations)
-    localStorage.setItem('name',cityNameJson)
-    renderRightBlock()
+    const activeBtb = document.querySelector('.favorite-btn')
+    activeBtb.className = 'favorite-btn-active'
+    const add = { name: responseText.name };
+    const found = addedLocations.find(item => item.name === add.name);
+    if (found !== undefined) {
+        alert('Такой город уже есть в списке.');
+    } else {
+        addedLocations.push(add);
+        const cityNameJson = JSON.stringify(addedLocations);
+        localStorage.setItem('name', cityNameJson);
+        renderRightBlock();
+    }
 }
 
 function renderRightBlock() {
@@ -129,23 +150,45 @@ function renderRightBlock() {
 
         async function returnFavCity() {
             const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
-            let cityName = addedLocations[i].name;
-            const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
-            let url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
-            let response = await fetch(url)
-            responseText = await response.json();
-            return renderLeftBlock(responseText)
+            try {
+                let cityName = addedLocations[i].name;
+                const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+                let url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
+                let response = await fetch(url)
+                responseText = await response.json();
+                return renderLeftBlock(responseText)
+            } catch {
+                return
+            }
 
         }
 
-        const newCloseBtn = document.createElement('button')
-        newCloseBtn.textContent = 'x'
+        // const newCloseBtn = document.createElement('button')
+        // newCloseBtn.textContent = 'x'
+        // newCloseBtn.className = 'cl-btn-7'
+        // newLi.append(newCloseBtn)
+        // newCloseBtn.addEventListener("click", () => {
+        //     addedLocations.splice(i, 1);
+        //     localStorage.setItem('name',JSON.stringify(addedLocations)) //обновление localStorage после удаления
+        //     newLi.remove()
+        // })
+        const newCloseBtn = document.createElement('div')
+        // newCloseBtn.textContent = 'x'
+        newCloseBtn.className = "btn-close"
         newLi.append(newCloseBtn)
         newCloseBtn.addEventListener("click", () => {
+            weatherNowDiv.innerHTML = ''
+            weatherNowDiv.textContent = ''
+            weatherDetails.innerHTML = ''
+            weatherDetails.textContent = ''
             addedLocations.splice(i, 1);
             localStorage.setItem('name',JSON.stringify(addedLocations)) //обновление localStorage после удаления
             newLi.remove()
         })
+
+
+
+
     }
 }
 
