@@ -23,6 +23,7 @@ const tabsBtnsHandler = (event) => {
 let data = localStorage.getItem('name');
 if (data !== '' && data !== null) {
     addedLocations = new Set(JSON.parse(data));
+    console.log(addedLocations)
     console.log('localstorage получен');
     renderRightBlock();
 }
