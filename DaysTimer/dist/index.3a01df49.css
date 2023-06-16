@@ -1,0 +1,34 @@
+@import "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap";
+body {
+  color: #fff;
+  background: #000;
+  font-family: "Press Start 2P";
+  font-size: 25px;
+}
+
+.container {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+}
+
+.form-group {
+  flex-direction: column;
+  display: flex;
+}
+
+.input-wrapper {
+  margin-top: 10px;
+  display: flex;
+}
+
+.btn-primary {
+  margin-left: 5px;
+}
+
+.answer {
+  margin-top: 30px;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */
