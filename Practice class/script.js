@@ -21,7 +21,7 @@ class Storage {
         // localStorage.getItem(key)?? true
     }
 }
-const names = new Storage('name','Nastya');
+const names = new Storage('name','value');
 
 // names.set('123','321')
 names.set()
