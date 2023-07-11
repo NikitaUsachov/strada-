@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "parcel indeml",
-    "build": "parcel build index.html"
+    "build": "parcel build dist/index.html"
   },
   "author": "",
   "license": "ISC",

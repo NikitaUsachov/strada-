@@ -1,0 +1,91 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: Arial, Verdana, sans-serif;
+    line-height: 27px;
+}
+
+
+.modal1 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+}
+
+.modal__box1 {
+    position: relative;
+    max-width: 500px;
+    padding: 45px;
+    z-index: 1;
+    margin: 20px 15px;
+    background-color: white;
+    box-shadow: 0px 0px 17px -7px rgba(34, 60, 80, 0.2);
+    transform: scale(0);
+    transition: transform .8s;
+}
+
+.modal__close-btn1 {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.modal__close-btn1 svg path {
+    transition: fill .3s;
+}
+
+.modal__close-btn1:hover svg path {
+    fill: #000000;
+}
+
+.modal__close-btn1:active svg path {
+    fill: rgb(186, 53, 0);
+}
+
+.modal1.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal1.open .modal__box1 {
+    transform: scale(1);
+}
+.modal-cont1{
+    display: block;
+    margin: 100px;
+}
+.get-pass{
+    /*margin-top: 20px;*/
+}

@@ -63,7 +63,7 @@ function renderLeftBlock(responseText) {
     newDivPrecipitation.className = 'precipitation';
     weatherNowDiv.append(newDivPrecipitation);
     // <img class="weather-now-precipitation-img" src="./assets/img/cloud.png" alt="precipitation">
-    const icon = responseText.weather[0].icon; // получаем иконку код иконки
+    сщтые шсщт = куызщтыуЕучеюцуферукх0ъюшсщтж // gjkexftv brjyre rjl brjyrb
     const newImg = document.createElement('img');
     newImg.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     newImg.className = 'weather-now-precipitation-img';

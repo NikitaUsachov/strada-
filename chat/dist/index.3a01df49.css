@@ -1,0 +1,50 @@
+body {
+  background: #444;
+}
+
+.content {
+  text-align: center;
+  background: #eee;
+  width: 304px;
+  height: 437px;
+  margin: 0 auto;
+}
+
+.elems-control {
+  display: flex;
+}
+
+.out {
+  margin: 3px;
+  padding-left: 151px;
+}
+
+.settings {
+  margin: 3px;
+  padding-left: 3px;
+}
+
+.correspondence {
+  background: #fff;
+  border: 1px solid #000;
+  width: 295px;
+  height: 352px;
+  margin: 4px;
+  position: relative;
+}
+
+.enter-msg {
+  background: #e5e5e5;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-left: 50%;
+}
+
+.interlocutor-message {
+  text-align: justify;
+  background: bisque;
+  width: 139px;
+  height: 52px;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */
