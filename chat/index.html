@@ -6,18 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style-modal-test.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style-modal.css">
-    <link rel="stylesheet" href="style-modal1.css">
-    <link rel="stylesheet" href="style-modal2.css">
 
 </head>
 <body>
 
-<div class="content">
+<div class="container">
     <div class="elems-control">
-        <div id="open-modal-btn"><button>Настройки</button></div>
-        <div class="out"><button>Выйти</button></div>
+        <div id="open-modal-btn0" ><button>ser</button></div>
+        <div class="out"><button class="btn waves-effect red lighten-2" >Выйти</button></div>
     </div>
     <div class="correspondence">
 
@@ -39,16 +38,20 @@
         <div class="newMsg"></div>
 
     </div>
-    <form>
-        <input class="input" placeholder="сообщение...." >
-        <button type="submit">-></button>
-    </form>
+    <div class="send-msg-form">
+        <form>
+        <input class="input" class="validate" placeholder="сообщение...." >
+        <button type="submit" class="btn waves-effect waves-light">></button>
+        </form>
+
+    </div>
+    
 </div>
 
 
 
 
-<div class="modal" id="my-modal">
+<!-- <div class="modal" id="my-modal">
     <div class="modal__box">
         <button class="modal__close-btn" id="close-my-modal-btn">
             <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,19 +60,40 @@
                 <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
             </svg>
         </button>
-        <div class="modal-cont">
+        <div class="modal-cont1">
             <h3>Настройки</h3>
             <form>
                 <label>Имя в чате</label>
                 <br/>
                 <input id="name" placeholder="Стив">
                 <br/>
-                <button id="send-name">-></button>
+                <button id="send-name" >-></button>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="modal0" id="my-modal0">
+    <div class="modal__box0">
+        <button class="modal__close-btn0" id="close-my-modal-btn0">
+            <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                      fill="#333333" />
+                <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+            </svg>
+        </button>
+        <div class="modal-cont0">
+            <h3>Настройки</h3>
+            <form>
+                <label>Имя в чате:</label>
+                <br/>
+                <input id="name" placeholder="Стив">
+                <br/>
+                <button id="send-name" >-></button>
             </form>
         </div>
     </div>
 </div>
-
 
 <div class="modal1" id="my-modal1">
     <div class="modal__box1">
@@ -87,8 +111,7 @@
                 <br/>
                 <input id="valid-email" placeholder="my@eamil.com">
                 <br/>
-                <button class="get-pass">Получить код</button>
-                <button class="give-pass" id="open-modal-btn2">Ввести код</button>
+                <button class="get-pass" id="open-modal-btn2"> Получить код </button>
             </form>
         </div>
     </div>
@@ -120,5 +143,7 @@
 
 <script src="script.js"></script>
 <script src="modal-windows.js"></script>
+
+
 </body>
 </html>

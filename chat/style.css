@@ -1,35 +1,42 @@
 
 body{
     background: #444444;
-
+    
 }
 .content{
     margin: 0 auto;
     background: #eeeeee;
     text-align: center;
-    width: 304px;
-    height: 437px;
+    height: 786px;
+    width: 1204px;
 }
 .elems-control{
     display: flex;
 }
 .out {
-    padding-left: 130px;
+    padding-left: 78%;
     margin: 10px;
 }
 .settings{
     padding-left: 3px;
     margin: 3px;
 }
-.correspondence{
-    overflow-y: auto;
+.correspondence {
+    
+    overflow-x: hidden;
+    padding: 25px;
     position: relative;
-    margin: 4px;
-    width: 295px;
-    height: 352px;
-    border: 1px solid #000;
-    background: #FFF;
+    margin: auto;
+    width: 658px;
+    height: 600px;
+    border: 1px solid #9e9e9e;
+    border-radius: 1px;
 }
+::-webkit-scrollbar {
+    height: 2px;
+    
+}
+
 .enter-msg {
     margin-top: 5px;
     border-radius: 2px;
@@ -50,25 +57,49 @@ body{
 .message-template {
     border-radius: 50px;
 }
-.myMessage{
+.myMessage {
     background: rgb(75, 78, 75);
     color: white;
     margin: 5px;
-    padding: 7px;
+    padding: 12px;
     text-align: left;
     border-radius: 10px;
-    width: 139px;
-    margin-left: 50%;
+    width: 272px;
+    margin-left: 57%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
 }
 
-.interlocutor-message{
+.interlocutor-message {
     margin: 5px;
     padding: 7px;
     color: white;
     text-align: justify;
-    background: green;
+    background: #27a69a;
     border-radius: 10px;
-    width: 139px;
+    width: 272px;
     height: auto;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.input{
+    color: #fff;
+    background-color: #fff;
+    border: none;
+    border-bottom: 3px solid #9e9e9e;
+    border-radius: 41;
+    outline: none;
+    height: 5rem;
+    width: 25%;
+    font-size: 16px;
+    margin: 12px 5px 8px;
+}
+.send-msg-form {
+    padding-top: 26px;
+    margin: auto;
+    width: 500px;
+
+}
+
+.out:hover{
+    color: #000000;
 }

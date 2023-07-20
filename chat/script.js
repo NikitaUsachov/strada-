@@ -1,4 +1,3 @@
-
 const correspondence = document.querySelector('.correspondence')
 const forms = document.forms[0]
 const inputForm = document.querySelector('.input')
@@ -9,42 +8,28 @@ const validKey = document.querySelector('#valid-key')
 const enterBtn = document.querySelector('#enter')
 const btnOut = document.querySelector('.out')
 // иниализация template
-
 const spanMsg = document.querySelector(".massage")
 const newMsg = document.querySelector('.newMsg')
 let token = getCookie('token');
 const inputName = document.querySelector('#name')
 let interMsg = document.querySelector('.interlocutor-message')
 let myMsg = document.querySelector('.myMessage')
-const socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
-
-if(token){
-    console.log(token)
+let socket;                
+if(token){  
+    Socket()    
     validation ()
-
 } else {
     console.log('token is not')
-    document.getElementById("my-modal").classList.add("open")
+    document.getElementById("my-modal0").classList.add("open")
 }
 
 function Socket(inputText) {
-    // const socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
-
-    // Обработка события открытия соединения WebSocket
-    // socket.addEventListener('open', () => {
-    //     // Отправка сообщения после открытия соединения
-    //     socket.send(JSON.stringify({ text: `${inputText}` }));
-    // });
-    // socket.onmessage = function(event) {
-    //     console.log(event.data)
-    //     console.log('Получено сообщение от сервера111');
-    //     getHistoryMessage()
-    // };
-    // Обработка события получения сообщения от сервера
+    socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
+    console.log('сокет запустил')
     socket.addEventListener('message', (event) => {
         const message = JSON.parse(event.data);
         console.log('Получено сообщение от сервера', message);
-        getHistoryMessage()
+        getHistoryMessage() 
 
     });
 
@@ -86,6 +71,7 @@ function printChatMessage(data) {
     newMsg.innerHTML = ''
     const messages = data.messages;
 
+
     messages.forEach((message) => {
         const email = message.user.email
         const name = message.user.name;
@@ -110,7 +96,10 @@ function printChatMessage(data) {
             const clone = messageInter.content.cloneNode(true)
             newMsg.append(clone)
         }
+
     });
+    console.log("Рендер выполнил")
+    
 
 }
 
@@ -118,21 +107,28 @@ async function postEmail(e) {
     e.preventDefault();
     let email = emailValue.value
     document.cookie = `email=${token}`
-    await fetch(api, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-        },
-        body: JSON.stringify({ email }),
-    });
-    try {
-        document.cookie = `email=${email}`
-        console.log('email in cookie ')
-        emailValue.value = ''
-        alert('Код отправлен, проверь почту')
-    } catch (err) {
-        alert('Неполадки на сервере, повтори позже')
+    if (email !== ''){
+        
+        await fetch(api, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+            },
+            body: JSON.stringify({ email }),
+        });
+        try {
+            document.cookie = `email=${email}`
+            console.log('email in cookie ')
+            emailValue.value = ''
+            // twoModalWindow()
+            
+        } catch (err) {
+            alert('Неполадки на сервере, повтори позже')
+        }
+    } else {
+        alert ('Email обязателен')
     }
+    
 }
 
 function setCookie (e) {
@@ -144,6 +140,7 @@ function setCookie (e) {
     console.log('авторизация успешна')
     validation()
 }
+
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -154,7 +151,7 @@ function getCookie(name) {
 async function validation (){
     let userName = inputName.value
     let token = getCookie('token')
-    console.log(token)
+    console.log('токен из кук достал ок')
     let data = { name:userName };
     await fetch(api,{
         method: 'PATCH',
@@ -193,7 +190,6 @@ function getUserData() {
 }
 
 function getHistoryMessage() {
-    let data;
     const url = 'https://edu.strada.one/api/messages';
     // Отправка GET-запроса на эндпоинт
     fetch(url, {
@@ -211,23 +207,20 @@ function getHistoryMessage() {
         })
         .then(data => {
             // Обработка полученных данных
-            console.log(data);
+            console.log("я получил историю, передаю в рендер");
             // console.log(typeof data);
             // getUserData()
             printChatMessage(data)
         })
-
+       
+    Socket()
 }
-
-
-
-
-
 
 
 sendBtn.addEventListener('click',postEmail)
 forms.addEventListener('submit',sendMyMessage)
 enterBtn.addEventListener('click', setCookie)
+//выход
 btnOut.addEventListener('click', function (){
     document.cookie = "token=; expires=-1";
     document.cookie = "email=; expires=-1";
